@@ -9,7 +9,7 @@
     <h1>EL JUEGO DE LOS DADOS</h1>
     <?php 
       define ('DADO1' , '&#9856');
-      define ('DADO2' , '&#9857');
+      define ('DADO2' , '&#9857'); 
       define ('DADO3' , '&#9858');
       define ('DADO4' , '&#9859');
       define ('DADO5' , '&#9860');
