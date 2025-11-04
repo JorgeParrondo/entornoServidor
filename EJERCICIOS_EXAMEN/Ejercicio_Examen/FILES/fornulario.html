@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Subir un archivo</title>
+</head>
+<body>
+  <h2>Formulario de subida de archivos</h2>
+
+  <!-- 
+    enctype="multipart/form-data" es OBLIGATORIO cuando hay un input type="file"
+    method="POST" se usa porque el archivo no puede enviarse por GET
+  -->
+  <form action="subir.php" method="POST" enctype="multipart/form-data">
+      <label for="archivo">Selecciona un archivo:</label>
+      <input type="file" name="archivo" id="archivo">
+      <br><br>
+      <input type="submit" value="Subir archivo">
+  </form>
+</body>
+</html>

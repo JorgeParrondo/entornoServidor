@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 4.3</title>
+</head>
+<body>
+   <h1> Formularios con controles html5 </h1>
+   <form action="03.php" method="get">
+     Numero 1 <input type="number" name = "numero1"> <br>
+     Numero 2 <input type="range" min="10" max="100" name="numero2"> <br>
+     
+     Estaciones <select id="Estaciones" name = "estaciones">
+        <option value="Invierno">Invierno</option>
+        <option value="Primavera">Primavera</option>
+        <option value="Verano">Verano</option>
+        <option value="Otono">Otoño</option>
+     </select>
+     <br>
+     <br>
+     Color favorito: <input type = "color" name="color"> <br>
+     Buscar: <input type = "search" name = "buscar" > <br>
+     Nombre: <input type = "text" name = "Nombre" > <br>
+     Apellido: <input type = "text" name = "Apellido" > <br>
+     email: <input type = "email" name = "email"> <br>
+     Fecha de nacimiento: <input type ="date"> <br>
+     Edad: <input type = "number" min="0" max="150"> <br>
+     Página personal: <input type= "url" name="url"> <br>
+     Horario: De <input type= "datetime" name="horario1" > a <input type="datetime" name="horario2"> <br>
+
+     <input type="submit" value="Enviar consulta">
+   </form>
+
+  <style>
+   h1{
+    text-align: center;
+    background-color: blue;
+    color: white;
+   }
+   
+
+  </style>
+</body>
+</html>
