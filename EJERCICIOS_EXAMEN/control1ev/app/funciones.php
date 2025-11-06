@@ -7,10 +7,10 @@ require_once ('dat/datos.php');
  *  @param $clave : Clave del usuario
  *  @return true o false
  */
-function userOk($login,$clave):bool {
+function userOk($login,$clave):bool { /*corregido*/
     global $usuarios;
     
-    if (array_key_exists($login, $usuarios) /*&& $login[$clave] == $clave*/ ){ /*no puedo meter que encuentre la clave, solo el numero de usuario*/
+    if (array_key_exists($login, $usuarios) && $usuarios[$login][1] == $clave ){ 
         return true;
     }else{
         return false;
@@ -23,12 +23,10 @@ function userOk($login,$clave):bool {
  *  @return ROL_ALUMNO o ROL_PROFESOR
  */
 function getUserRol($login){
-    if($login == ' 200001' ){
-        return ROL_PROFESOR;
-    }else{
-    return ROL_ALUMNO;
+  global $usuarios;
+  return $usuarios [$login][2];    
 }
-}
+
 
 /**
  *  Muestra las notas del alumno indicado.
@@ -40,16 +38,18 @@ function verNotasAlumno($codigo):String{
     global $nombreModulos;
     global $notas;
     global $usuarios;
-    $nombre = "alumno";
-   
-    $msg .= " Bienvenido/a alumno/a: ". "$nombre";
+    $notasAlumno = $notas[$codigo];
+    $msg .= " Bienvenido/a alumno/a: ". $usuarios[$codigo][0];
+
     $msg .= "<table>";
-    $msg .= "<th> modulo";  
-     for($i = 0 ; $nombreModulos < 4 ; $i++){
-     $msg  .= "<tr> <?php $nombreModulos[i]; ?> </tr>";
+    $msg .= "<th> Módulo </th> <th> Nota </th> ";
+
+     for ($i =0; $i< count($nombreModulos); $i++) {
+        $msg .="<tr>";
+        $msg .="<td>".$nombreModulos[$i]."</td>";
+        $msg .="<td>".$notasAlumno[$i]."</td>";
+        $msg .= "</tr>";
     }
-    $msg .= "</th>";
-    $msg .= "<th> notas </th>";
     $msg .= "</table>";
     return $msg;
 }
@@ -64,9 +64,19 @@ function verNotaTodas ($codigo): String {
     global $nombreModulos;
     global $notas;
     global $usuarios;
-    $nombre = $usuarios[$nombre];
-    $msg .= " Bienvenido Profesor: ". $nombre;
+    $notasAlumno = $notas[$codigo][0];
+    $msg .= " Bienvenido Profesor: ". $usuarios[$codigo][0];
     $msg .= "<table>";
+    $msg .= "<th> Módulo </th> <th> Alumno </th> <th> Nota </th>";
+    for ($i =0; $i< count($nombreModulos); $i++) {
+        $msg .="<tr>";
+        $msg .="<td>".$nombreModulos[$i]."</td>";
+        for ($j =0; $j < count($nombreModulos); $j++) {
+        $msg .="<td>".$notasAlumno[$i]."</td>";
+        $msg .= "</tr>";
+        }
+    }
+    
     $msg .= "</table>";
     return $msg;
 }
