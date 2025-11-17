@@ -24,7 +24,7 @@ if (isset($NumJugador)) {
         } 
         else {
             $restantes = 5 - $_SESSION['intentos'];
-            $msg = "Has fallado, te quedan $restantes intentos.";
+            $msg = "Has fallado, te quedan $restantes intentos."; 
         }
     }
 }
