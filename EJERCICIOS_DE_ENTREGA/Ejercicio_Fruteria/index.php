@@ -57,7 +57,7 @@ if (isset($_POST["accion"])) {
         break;
     case " Terminar ":
            // Destruyo la sesión y vuelvo a la página de bienvenida
-         $compraRealizada = htmlTablaPedidos();
+         $compraRealizada = htmlTablaPedidos(); //pasa los valores de la tabla antes de que se destruya la sesión
          require_once('despedida.php');
          session_destroy();
          exit();
