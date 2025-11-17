@@ -57,9 +57,11 @@ if (isset($_POST["accion"])) {
         break;
     case " Terminar ":
            // Destruyo la sesión y vuelvo a la página de bienvenida
-           require_once('despedida.php');
-           session_destroy();
-           exit();
+         $compraRealizada = htmlTablaPedidos();
+         require_once('despedida.php');
+         session_destroy();
+         exit();
+
         break;
 }
 }

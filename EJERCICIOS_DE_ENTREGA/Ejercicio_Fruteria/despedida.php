@@ -1,9 +1,3 @@
-<?php
-require_once ('index.php');
-
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,3 +18,4 @@ require_once ('index.php');
 </div>
 </body>
 </html>
+
