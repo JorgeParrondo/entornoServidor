@@ -1,0 +1,1 @@
+mario es tonto datos.txt se crea automaticamente si el código es correcto
