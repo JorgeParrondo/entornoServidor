@@ -22,7 +22,13 @@ function obtenerDivisoresTodos ($datos,$divisores):array{
   
     $resu = [];     
      // COMPLETAR  ++++++++++++++++++++++++++++++
-
+     for($i = 0 ; $i < count($divisores); $i++){
+         $resu[$divisores[$i]] = [];
+        }for($j = 0 ; $j < count($datos) ; $j++){
+             if($datos[$j] % $divisores[$i] == 0){
+                 $resu[$divisores[$i]] [] = $datos[$j];
+            }
+        }
     return $resu;
 
 }
@@ -37,7 +43,19 @@ function obtenerDivisoresTodos ($datos,$divisores):array{
 function obtenerDivisoresNoRepes ($datos,$divisores):array{
  
     $resu = [];
-     // COMPLETAR  +++++++++++++++++++++++++++++++
+    for ($i = 0; $i <count($divisores); $i++){
+        $resu[$divisores[$i] ] = [];
+          foreach ( $datos as $key => $valor){
+            if ($valor % $divisores[$i] == 0){
+                // Si no está incluido previamente 
+                if (array_search($valor,$resu[$divisores[$i]]) === false ){
+                $resu[$divisores[$i]][] = $valor;
+                }
+                unset($datos[$key]);
+            }
+        }
+
+    }
     return $resu;
 }
 
