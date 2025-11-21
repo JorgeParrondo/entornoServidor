@@ -1,0 +1,60 @@
+  body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5; /* Un gris muy suave de fondo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ocupa toda la altura de la ventana */
+            margin: 0;
+        }
+
+        form {
+            background-color: #ffffff; /* El formulario será una "tarjeta" blanca */
+            padding: 2em; /* Espaciado interno generoso */
+            border-radius: 8px; /* Esquinas redondeadas */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            width: 300px; /* Un ancho fijo para que no se estire */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 0; /* Quita el margen superior del título */
+        }
+
+        /* Estilo para los contenedores de label + input */
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block; /* Hace que la etiqueta ocupe su propia línea */
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%; /* Ocupa todo el ancho del formulario */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* IMPORTANTE: El padding no aumenta el ancho total */
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; /* Un azul estándar */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer; /* Cambia el cursor a una manita */
+            font-size: 16px;
+        }
+
+        /* Efecto al pasar el ratón por encima del botón */
+        button:hover {
+            background-color: #0056b3; /* Un azul un poco más oscuro */
+        }
