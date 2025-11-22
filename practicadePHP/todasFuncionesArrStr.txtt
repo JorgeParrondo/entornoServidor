@@ -1,0 +1,101 @@
+
+=================================
+   FUNCIONES DE STRINGS 
+=================================
+------------Manipulación general------------
+
+STRLEN() – Obtiene la longitud de un string.
+
+SUBSTR() – Extrae parte de un string.
+
+STR_REPLACE() – Reemplaza texto dentro de un string.
+
+STR_IREPLACE() – Reemplazo sin distinguir mayúscula/minúscula.
+
+TRIM() – Elimina espacios al inicio y final.
+
+LTRIM(), RTRIM() – Eliminan espacios izquierdo/derecho.
+
+------------Búsqueda------------
+
+STRPOS() – Busca la posición de un string dentro de otro.
+
+STRIPOS() – Igual pero insensible a mayúsculas.
+
+STRRPOS() – Última aparición de un string.
+
+STR_CONTAINS() – Verifica si contiene un texto (PHP 8+).
+
+STR_STARTS_WITH() – Verifica si empieza con un texto (PHP 8+).
+
+STR_ENDS_WITH() – Verifica si termina con un texto (PHP 8+).
+
+------------Modificación / Formateo------------
+
+STRTOUPPER() – Convierte a mayúsculas.
+
+STRTOLOWER() – Convierte a minúsculas.
+
+UCFIRST() – Primera letra en mayúscula.
+
+LCFIRST() – Primera letra en minúscula.
+
+EXPLODE() – Divide un string en array.
+
+IMPLODE() / JOIN() – Une un array en un string.
+
+
+=================================
+      FUNCIONES DE ARRAYS 
+=================================
+------------Búsqueda y verificación------------
+
+IN_ARRAY() – Verifica si un valor existe en el array.
+
+ARRAY_KEY_EXISTS() – Verifica si una clave existe.
+
+ARRAY_SEARCH() – Busca un valor y devuelve su clave.
+
+Manipulación
+
+ARRAY_PUSH() – Agrega elementos al final.
+
+ARRAY_POP() – Elimina el último elemento.
+
+ARRAY_SHIFT() – Elimina el primer elemento.
+
+ARRAY_UNSHIFT() – Agrega elementos al inicio.
+
+ARRAY_MERGE() – Une arrays.
+
+ARRAY_SLICE() – Extrae una parte del array.
+
+ARRAY_SPLICE() – Quita/reemplaza porciones.
+
+------------Ordenación------------
+
+SORT() – Ordena valores.
+
+RSORT() – Ordena en reversa.
+
+ASORT() – Ordena manteniendo claves.
+
+ARSORT() – Reversa manteniendo claves.
+
+KSORT() – Ordena por claves.
+
+KRSORT() – Ordena por claves reversa.
+
+------------Funciones avanzadas------------
+
+ARRAY_FILTER() – Filtra usando callback.
+
+ARRAY_MAP() – Aplica callback a cada elemento.
+
+ARRAY_REDUCE() – Reduce un array a un solo valor.
+
+ARRAY_KEYS() – Obtiene todas las claves.
+
+ARRAY_VALUES() – Obtiene todos los valores.
+
+ARRAY_UNIQUE() – Elimina valores duplicados.
