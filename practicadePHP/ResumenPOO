@@ -17,7 +17,8 @@ class Persona {
     // Constante de clase: no cambia su valor.
     const TIPO = "Humano";
 
-    // Constructor: se ejecuta automáticamente al crear un objeto
+    /* Constructor: se ejecuta automáticamente al crear un objeto lo que hace basicamente es que cuando creas un objeto
+    en este caso una persona, puedas meter sus datos en el parentesis y no tengas que inicializarlos uno por uno */
     public function __construct($nombre, $edad, $dni) {
         // $this hace referencia al objeto actual
         $this->nombre = $nombre;
@@ -29,8 +30,10 @@ class Persona {
     public function saludar() {
         return "Hola, soy " . $this->nombre;
     }
-
-    // Getter: permite acceder a una propiedad privada
+  /* GETTES Y SETTERS sirven principalmente para interactuar con propiedades privadas y protegidas o en general valores que 
+  se quieran cambiar */
+   
+  // Getter: permite acceder a una propiedad privada
     public function getDni() {
         return $this->dni;
     }
