@@ -99,3 +99,17 @@ ARRAY_KEYS() – Obtiene todas las claves.
 ARRAY_VALUES() – Obtiene todos los valores.
 
 ARRAY_UNIQUE() – Elimina valores duplicados.
+
+
+
+$linea = "Hola, adios, usuario, contraseña";
+$partes = explode(",", $linea); //EXPLODE DEVUELVE UN ARRAY AUTOMATICAMENTE
+print_r($partes);
+ARRAY(
+    [0] --> "Hola"
+    [1] --> " adios"
+    [2] --> " usuario"
+    [3] --> " contraseña"
+)
+$partes[3] =  " contraseña"
+luego se puede usar trim para eliminar espacios en blanco.

@@ -1,0 +1,196 @@
+<?php
+
+// ======================================================
+// 1. CLASE BÁSICA con propiedades, métodos y constructor
+// ======================================================
+
+// Definimos una clase llamada Persona.
+// Una clase es un molde para crear objetos.
+class Persona {
+
+    // Propiedades: variables dentro de la clase.
+
+    public string $nombre;     // PUBLIC: accesible desde cualquier parte
+    protected int $edad;       // PROTECTED: solo desde la clase y sus hijos
+    private string $dni;       // PRIVATE: solo desde esta clase
+
+    // Constante de clase: no cambia su valor.
+    const TIPO = "Humano";
+
+    // Constructor: se ejecuta automáticamente al crear un objeto
+    public function __construct($nombre, $edad, $dni) {
+        // $this hace referencia al objeto actual
+        $this->nombre = $nombre;
+        $this->edad = $edad;
+        $this->dni = $dni;
+    }
+
+    // Método: función dentro de la clase
+    public function saludar() {
+        return "Hola, soy " . $this->nombre;
+    }
+
+    // Getter: permite acceder a una propiedad privada
+    public function getDni() {
+        return $this->dni;
+    }
+
+    // Setter: modifica una propiedad privada
+    public function setDni($nuevoDni) {
+        $this->dni = $nuevoDni;
+    }
+}
+
+
+
+// ===============================================
+// 2. HERENCIA (Administrador hereda de Persona)
+// ===============================================
+
+// Administrador extiende Persona, por lo que hereda
+// sus propiedades y métodos.
+class Administrador extends Persona {
+
+    private string $rol = "Administrador";
+
+    // Polimorfismo: sobrescribir método del padre
+    public function saludar() {
+        return "Soy el admin " . $this->nombre . " y tengo permisos completos.";
+    }
+
+    public function getRol() {
+        return $this->rol;
+    }
+}
+
+
+
+// ===============================================
+// 3. INTERFACES
+// ===============================================
+
+// Una interface obliga a una clase a implementar ciertos métodos.
+// Define un "contrato".
+interface Loggable {
+    public function login();
+    public function logout();
+}
+
+
+
+// ===============================================
+// 4. TRAITS
+// ===============================================
+
+// Un trait permite compartir métodos entre clases.
+// Sirven para reutilizar código sin herencia.
+trait Mensajeria {
+    public function enviarMensaje($texto) {
+        return "Mensaje enviado: " . $texto;
+    }
+}
+
+
+
+// ===============================================================
+// 5. CLASE IMPLEMENTANDO INTERFACE y USANDO TRAIT
+// ===============================================================
+
+class Usuario extends Persona implements Loggable {
+
+    use Mensajeria; // añade el método enviarMensaje()
+
+    private string $clave;
+
+    // Obligatorias por la interface Loggable
+    public function login() {
+        return "Usuario " . $this->nombre . " ha iniciado sesión";
+    }
+
+    public function logout() {
+        return "Usuario " . $this->nombre . " ha cerrado sesión";
+    }
+}
+
+
+
+// ==========================================
+// 6. CLASE ABSTRACTA (plantilla de clases)
+// ==========================================
+
+// Una clase abstracta no se puede instanciar directamente.
+// Obliga a sus hijas a implementar ciertos métodos.
+abstract class Figura {
+    abstract public function area(); // Método obligatorio
+}
+
+
+
+// ===================================================
+// 7. CLASE HIJA QUE IMPLEMENTA MÉTODO ABSTRACTO
+// ===================================================
+
+class Cuadrado extends Figura {
+    public $lado;
+
+    public function __construct($lado) {
+        $this->lado = $lado;
+    }
+
+    // Implementación obligatoria del método abstracto
+    public function area() {
+        return $this->lado * $this->lado;
+    }
+}
+
+
+
+// ==========================================
+// 8. MÉTODOS ESTÁTICOS
+// ==========================================
+
+// Métodos que se pueden ejecutar sin crear un objeto
+class Utilidades {
+
+    public static function generarID() {
+        return uniqid("ID_");
+    }
+}
+
+
+
+// ==========================
+// 9. PROBANDO TODO EL CÓDIGO
+// ==========================
+
+// Crear un objeto de la clase Persona
+$persona = new Persona("Luis", 30, "12345678A");
+echo $persona->saludar() . "<br>";            // Método normal
+echo "DNI: " . $persona->getDni() . "<br><br>";  // Getter
+
+
+
+// Crear un objeto de clase hija (herencia)
+$admin = new Administrador("Carlos", 40, "99999999Z");
+echo $admin->saludar() . "<br>";   // Método sobrescrito (polimorfismo)
+echo "Rol: " . $admin->getRol() . "<br><br>";
+
+
+
+// Usuario que hereda Persona + usa Traits + implementa una Interface
+$usuario = new Usuario("Ana", 25, "11111111X");
+echo $usuario->login() . "<br>";                        // Interface
+echo $usuario->enviarMensaje("Bienvenida al sistema") . "<br><br>"; // Trait
+
+
+
+// Usando clase abstracta
+$cuadrado = new Cuadrado(5);
+echo "Área del cuadrado: " . $cuadrado->area() . "<br><br>";
+
+
+
+// Llamar a un método estático
+echo "ID generado: " . Utilidades::generarID() . "<br>";
+
+?>
