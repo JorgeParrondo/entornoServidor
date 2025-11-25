@@ -1,0 +1,4 @@
+25:11:2025 20:52, Jorge, falta papel, baja, ::1
+25:11:2025 20:53, mario, voy a suspender, baja, ::1
+25:11:2025 20:55, xd, no funciona el case
+, baja, ::1
