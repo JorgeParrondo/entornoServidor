@@ -34,16 +34,19 @@ function anotarNuevoAcceso($username):int{
     $fich = fopen("usuarios.dat","r");
     $resu = false;
     $usuarios=[];
+    //recorre en csv
     while ( $valores = fgetcsv($fich)){
+        //si el nombre ya existe porque se iguala al de usuario se suma 1 al tercer valor que es el numero de accesos
         if ($valores[0] == $username ){
             $valores[2] = $valores[2]+1; 
             $resu = true;
         }
+        //crea una tabla en la que vuelca los valores del fichero
         $usuarios[] = $valores;
     }
     fclose($fich);
-
-    if ( $resu) {
+   //si no se cumple la condicion se usa volcar usuarios que crea un nuevo usuario
+    if ($resu) {
         volcarDatos($usuarios);
     }
     return $resu;

@@ -12,7 +12,7 @@ session_start();
    
     if (accesoValido($username,$password) == true) {
     //si el acceso es valido anota en la sesion las variables para anotar el usuario y su acceso
-        $_SESSION["nombre"] = $nombre;
+        $_SESSION["username"] = $username;
         $_SESSION["tiempo"] = $tiempo;
         $_SESSION["tiempolimite"] = time() + $tiempo;
         require_once('bienvenido.php');
@@ -22,11 +22,11 @@ session_start();
     }
          
     }
-    
- if ( isset ($_SESSION["tiempolimite"]) ){
-    if ( time() > $_SESSION["tiempolimite"]  ){
+    //si time es mayor significa que $tiempo todavia no se ha consumido
+    if ( isset ($_SESSION["tiempolimite"]) ){
+     if ( time() > $_SESSION["tiempolimite"]  ){
         session_destroy();
-    } else {
+     } else {
         $_SESSION["tiempo"] = $_SESSION["tiempolimite"] - time();
         include 'bienvenido.php';
         exit();     
