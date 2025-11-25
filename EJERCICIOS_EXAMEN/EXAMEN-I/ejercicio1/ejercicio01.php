@@ -42,9 +42,10 @@ $importe = $_POST['importe'];
 //FILE_APPEND evita que se machaque el fichero
 if ( $_POST['Orden'] == 'Ingreso'){
     $saldo = $saldo + $importe;
-    file_put_contents(CUENTAFICHERO,$saldo, FILE_APPEND); //file put contents maneja automaticamente el fichero
+    file_put_contents(CUENTAFICHERO,$saldo); //file put contents maneja automaticamente el fichero
     $msg = "Operacion realizada";
-    header("Location: acceso.php?msg=".urlencode($msg));
+    //header redirige de pagina al usuario
+    header("Location: acceso.php?msg=".urlencode($msg)); //urlencode adapta el texto para que no de error en el navegador
     exit();
 }
 
