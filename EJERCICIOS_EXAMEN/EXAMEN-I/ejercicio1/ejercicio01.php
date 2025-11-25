@@ -1,7 +1,7 @@
 <?php
 session_start(); //Hay que meterlo para que funcione el session token, lo comparten tanto acceso como ejercicio01(porque se usas en la misma sesion / navegador)
 
-define('CUENTAFICHERO', 'misaldo.txt');
+define('CUENTAFICHERO', 'misaldo.txt'); //define CUENTAFICHERO A misaldo.txt, son lo mismo
 
 // NO está definido el token
 if (!isset($_SESSION['token'])) {
@@ -20,7 +20,7 @@ if( $_SESSION['token'] != $_POST['token']){
 }
 
 //Este fragmento recoge la orden ver saldo de acceso.php y el saldo de misaldo.txt a traves de file get contents
-$saldo = file_get_contents(CUENTAFICHERO);
+$saldo = file_get_contents(CUENTAFICHERO); //usar file get contents abre y cierra el fichero por si solo
 
 if($_POST['Orden'] == 'Ver saldo'){
  $msg = "Su saldo actual es " . number_format($saldo,2,',','.');
@@ -38,9 +38,11 @@ if (empty($_POST['importe']) || !is_numeric($_POST['importe']) || $_POST['import
 //Registra la variable importe con lo que se recibe del formulario y se añade a saldo en el archivo CUENTAFICHERO
 $importe = $_POST['importe'];
 
+
+//FILE_APPEND evita que se machaque el fichero
 if ( $_POST['Orden'] == 'Ingreso'){
     $saldo = $saldo + $importe;
-    file_put_contents(CUENTAFICHERO,$saldo);
+    file_put_contents(CUENTAFICHERO,$saldo, FILE_APPEND); //file put contents maneja automaticamente el fichero
     $msg = "Operacion realizada";
     header("Location: acceso.php?msg=".urlencode($msg));
     exit();
