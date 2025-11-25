@@ -14,7 +14,7 @@ fdatasync — Sincroniza los datos (pero no los metadatos) con el fichero
 feof — Prueba el final del archivo
 fflush — Envía todo el contenido generado en un fichero
 fgetc — Lee un carácter en un fichero
-fgetcsv — Obtiene una línea desde un puntero de archivo y la analiza para campos CSV
+                               fgetcsv — Obtiene una línea desde un puntero de archivo y la analiza para campos CSV
 fgets — Recupera la línea actual a partir de la posición del puntero de archivo
 fgetss — Obtiene un línea desde un puntero a un archivo y elimina las etiquetas HTML
 file — Lee el fichero y devuelve el resultado en un array

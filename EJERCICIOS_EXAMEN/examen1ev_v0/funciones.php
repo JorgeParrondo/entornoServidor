@@ -9,8 +9,19 @@
  */
 function accesoValido($username, $password): bool
 {
-    // COMPLETAR  +++++++++++++++++++++++++++++++
-    return true;
+    $fich = fopen("usuarios.dat","r");
+    $resu = false;
+    //                                                                                        valores[0] , valores[1], valores[2]. 
+    // pepe,$2y$10$Q156QnuOb6nDXYlMnkaDueOn8WelAs.tpp4BIw3FshIgLje0FMUem,3 -->filegetscsv --> [pepe      ,(contraseña), 3]
+    while ( $valores = fgetcsv($fich)){  //lee mi fichero como un csv (fgetscsv)
+        //password_verify(contraseña, valor que comparar)
+        if ($valores[0] == $username && password_verify($password,$valores[1])){
+            $resu = true;
+            break;
+        }
+    }
+    fclose($fich);
+    return $resu;
 }
 
 /**
@@ -20,10 +31,38 @@ function accesoValido($username, $password): bool
  * @return int The result of the access recording operation.
  */
 function anotarNuevoAcceso($username):int{
+    $fich = fopen("usuarios.dat","r");
+    $resu = false;
+    $usuarios=[];
+    while ( $valores = fgetcsv($fich)){
+        if ($valores[0] == $username ){
+            $valores[2] = $valores[2]+1; 
+            $resu = true;
+        }
+        $usuarios[] = $valores;
+    }
+    fclose($fich);
 
-     // COMPLETAR  +++++++++++++++++++++++++++++++
-    return 0;
+    if ( $resu) {
+        volcarDatos($usuarios);
+    }
+    return $resu;
+    
 }
+
+/**
+ *  Vuelca los datos el array de usuarios en el fichero
+ * 
+ */
+function volcarDatos ($tabla){
+    
+   $fich = fopen("usuarios.dat","w");
+   foreach( $tabla as $valores){
+      fputcsv($fich,$valores);
+   }
+   fclose($fich);
+}
+
 
 /**
  * Registers a user with a given username and time.
@@ -32,6 +71,13 @@ function anotarNuevoAcceso($username):int{
  * @param int $time The time associated with the registration.
  */
 function registra($username,$time){
-     // COMPLETAR  +++++++++++++++++++++++++++++++
-    return;
+     $ip = $_SERVER["REMOTE_ADDR"];
+     $nombre = $username;
+     $tiempo = date("d-m-Y h:i",$time);
+     //mete los 3 datos en una linea
+     $linea = $ip.",".$nombre.",".$tiempo."\n";
+     //lo mete todo en el fichero con APPEND para que no machaque
+     $resu = @file_put_contents("registro.log",$linea,FILE_APPEND);
+    return $resu;
 }
+
