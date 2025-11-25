@@ -1,0 +1,26 @@
+<?php
+
+//permite usar metodos sin necesidad de heredar
+
+// Definición de un trait
+trait Saludo {
+    public function decirHola() {
+        echo "Hola!";
+    }
+}
+
+// Clase que usa el trait
+class Persona {
+    use Saludo;
+}
+
+class Robot {
+    use Saludo;
+}
+
+// Uso
+ // Muestra "Hola!"
+
+$r = new Robot();
+$r->decirHola(); // También muestra "Hola!"
+?>
