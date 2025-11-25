@@ -1,4 +1,18 @@
 <?php
+$numincidencias = 0;
+if (isset($_COOKIE['numincidencias'])) {
+    $numincidencias = $_COOKIE['numincidencias'];
+}
+
+$error = false;
+if ($numincidencias >= 3) {
+    $msg ="Superado el número máximo de incidencias.\n";
+    $msg .="Espere 2 minutos para introducir otra o reinicie su navegador.";
+    $error = true;
+} else {
+    $numincidencias++;
+    setcookie('numincidencias', $numincidencias, time() + 180);
+}
 $nombre = $_POST['nombre'];
 $resumen = $_POST['resumen'];
 $prioridad = $_POST['prioridad'];
