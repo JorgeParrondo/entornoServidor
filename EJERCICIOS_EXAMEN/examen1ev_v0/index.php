@@ -12,7 +12,7 @@ session_start();
    
     if (accesoValido($username,$password) == true) {
     //si el acceso es valido anota en la sesion las variables para anotar el usuario y su acceso
-        $_SESSION["username"] = $username;
+        $_SESSION["nombre"] = $username;
         $_SESSION["tiempo"] = $tiempo;
         $_SESSION["tiempolimite"] = time() + $tiempo;
         require_once('bienvenido.php');

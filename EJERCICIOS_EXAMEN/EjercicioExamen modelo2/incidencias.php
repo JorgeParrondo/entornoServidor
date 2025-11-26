@@ -13,6 +13,7 @@ if ($numincidencias >= 3) {
     $numincidencias++;
     setcookie('numincidencias', $numincidencias, time() + 180);
 }
+
 $nombre = $_POST['nombre'];
 $resumen = $_POST['resumen'];
 $prioridad = $_POST['prioridad'];

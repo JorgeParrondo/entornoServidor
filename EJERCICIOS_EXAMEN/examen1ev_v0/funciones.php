@@ -46,7 +46,7 @@ function anotarNuevoAcceso($username):int{
     }
     fclose($fich);
    //si no se cumple la condicion se usa volcar usuarios que crea un nuevo usuario
-    if ($resu) {
+    if ($resu == false) {
         volcarDatos($usuarios);
     }
     return $resu;

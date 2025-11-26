@@ -7,6 +7,9 @@ trait Saludo {
     public function decirHola() {
         echo "Hola!";
     }
+    public function despedirse(){
+        echo 'adios';
+    }
 }
 
 // Clase que usa el trait
@@ -21,6 +24,8 @@ class Robot {
 // Uso
  // Muestra "Hola!"
 
+
 $r = new Robot();
-$r->decirHola(); // También muestra "Hola!"
+echo $r->decirHola(); // También muestra "Hola!"
+echo $r->despedirse();
 ?>
