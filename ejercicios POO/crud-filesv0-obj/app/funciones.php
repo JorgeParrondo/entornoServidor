@@ -31,10 +31,10 @@ function cargarDatostxt(){
         // Escribimos la correspondiente fila en tabla
         //$tabla[]= [ $partes[0],$partes[1],$partes[2],$partes[3]];
         $usr = new Usuario();
-        $usr->nombre = $partes[0];
-        $usr->login = $partes[1];
-        $usr->clave = $partes[2];
-        $usr->comentario = $partes[3];
+        $usr->dni = $partes[0];
+        $usr->nombre = $partes[1];
+        $usr->clavehash = $partes[2];
+        $usr->puntos = $partes[3];
         $tabla[] = $usr;
         }
     fclose($fich);
