@@ -3,10 +3,7 @@
 // DATOS DE PRUEBA
 $precios = [250, 10, 50, 100, 50, 25, 5, 200, 10, 300, 50];
 // Definimos rangos: 'Barato' hasta 20 inclusive, 'Medio' hasta 100, 'Caro' más de 100
-$categorias = [
-   1=> 'Barato',
-   2=>'Medio',
-   3=>'Caro'];
+$categorias = ['Barato','Medio','Caro'];
 
 // LLAMADAS A FUNCIONES
 
@@ -27,28 +24,25 @@ print_r($res2);
  * @param array $categorias Array asociativo con los nombre de las categorias
  * @return array Array multidimensional
  */
+sort($precios);
 function agruparPorCategoria($precios, $categorias): array {
-      
-     // COMPLETAR  ++++++++++++++++++++++++++++++
-     //RECORRE PRIMERO LAS CATEGORIAS
-     //no se cumple la condicion, lo pone todo en caro no se porque
-   $resu = [];
-     for($i = 0 ; $i < count($categorias); $i++){
-             $resu[$categorias[$i]][] = [];
-        }for($j = 0 ; $j < count($precios) ; $j++){
-             if($precios[$j] <=  10){
-                 $resu[$i][$j] = $precios[$j];
-             }else{
-               if($precios[$j] > 10 && $precios[$j] <= 100) {
-                 $resu[$i][$j] = $precios[$j];
-             }if($precios[$j] > 100){
-                 $resu[$i][$j] = $precios[$j];
-             }
-             
-        }
-    }
-    return $resu;
+  $resultado = [];
+  $resultado [] = [$categorias[0]] = [];
+  $resultado [] = [$categorias[1]] = [];
+  $resultado [] = [$categorias[2]] = [];
+  foreach ( $precios as $precio){
+      if ( $precio <= 10){
+         $resultado[0][] = $precio;
+      }else if ( $precio <= 100 ){
+         $resultado[1][] = $precio;
+      }else{
+         $resultado[2][] = $precio;
+      }
+  }
+   return $resultado;
 }
+ 
+
 //GENERA CORRECTAMENTE UN ARRAY DE X NUMEROS CON X MINIMO Y X MAXIMO QUE DECIDA EL USUARIO
 function generarDatos($min,$max, $nunelementos): array {
     $resultado = [];
