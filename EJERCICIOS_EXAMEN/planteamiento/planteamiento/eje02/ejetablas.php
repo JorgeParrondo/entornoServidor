@@ -26,10 +26,12 @@ print_r($res2);
  */
 sort($precios);
 function agruparPorCategoria($precios, $categorias): array {
-  $resultado = [];
-  $resultado [] = [$categorias[0]] = [];
-  $resultado [] = [$categorias[1]] = [];
-  $resultado [] = [$categorias[2]] = [];
+   $resultado = [
+        $categorias[0] => [],  
+        $categorias[1] => [],  
+        $categorias[2] => []  
+    ];
+
   foreach ( $precios as $precio){
       if ( $precio <= 10){
          $resultado[0][] = $precio;
