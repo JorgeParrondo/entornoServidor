@@ -8,7 +8,7 @@ $datosconexion = "mysql:host=localhost;dbname=Usuarios;charset=utf8";
 
 try {
     // Creo el objeto PDO estableciendo la conexión a la BD
-    $dbh = new PDO($datosconexion, "root", "root");
+    $dbh = new PDO($datosconexion, "root", "");
     // Si falla genera una excepción y no emula la senticas preparadas
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
