@@ -26,23 +26,32 @@ print_r($res2);
  */
 sort($precios);
 function agruparPorCategoria($precios, $categorias): array {
-   $resultado = [
-        $categorias[0] => [],  
-        $categorias[1] => [],  
-        $categorias[2] => []  
+
+    sort($precios);
+
+    // Estructura correcta: solo claves con los nombres
+    $resultado = [
+        $categorias[0] => [],  // Barato
+        $categorias[1] => [],  // Medio
+        $categorias[2] => []   // Caro
     ];
 
-  foreach ( $precios as $precio){
-      if ( $precio <= 10){
-         $resultado[0][] = $precio;
-      }else if ( $precio <= 100 ){
-         $resultado[1][] = $precio;
-      }else{
-         $resultado[2][] = $precio;
-      }
-  }
-   return $resultado;
+    foreach ($precios as $precio) {
+
+        if ($precio <= 20) {
+            $resultado[$categorias[0]][] = $precio;
+
+        } elseif ($precio <= 100) {
+            $resultado[$categorias[1]][] = $precio;
+
+        } else {
+            $resultado[$categorias[2]][] = $precio;
+        }
+    }
+
+    return $resultado;
 }
+
  
 
 //GENERA CORRECTAMENTE UN ARRAY DE X NUMEROS CON X MINIMO Y X MAXIMO QUE DECIDA EL USUARIO

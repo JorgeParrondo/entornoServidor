@@ -12,6 +12,7 @@ include "dat/Cliente.php";
 function cargarTablaClientes (): array {
 
     $tclientes = [];
+ 
     $fichero = @fopen('dat/clientes.csv', 'r') or die("ERROR al abrir fichero de usuarios"); // abrimos el fichero para lectura
     
      while ($tclientes = fgetcsv($fichero)) {
@@ -23,7 +24,6 @@ function cargarTablaClientes (): array {
         $cli->clavclavehashe = $tclientes[2],
         $cli->puntos = $tclientes[3],
         );
-       
         $tclientes[] = $cli;
         }
     fclose($fichero);
@@ -37,7 +37,7 @@ function cargarTablaClientes (): array {
  * Escribe la tabla de objectos clientes en el fichero csv
  * @param  $tabla - array de objectos
  */
-
+//Esta mal entero
 function salvarTablaClientes(array $tabla){
     global $tclientes;
     //cambio el nombre para no alterarlo hasta que sea funcional
@@ -60,6 +60,8 @@ function validarCliente($dni, $clave) :bool{
     $tablacli = cargarTablaClientes();
     $resu = false; 
 
+
+    //no hacia falta abrir el fichero y esta mal la ruta
     $fich = fopen("clientes.csv","r");                                                                                  
     while ( $tablaCli = fgetcsv($fich)){  
         //password_verify(contraseña, valor que comparar)
@@ -81,13 +83,14 @@ function validarCliente($dni, $clave) :bool{
 //DEBERIA SER FUNCIONAL
 function anotarPuntos($dni,$puntos): bool {
     $tablaCli = cargarTablaClientes();
-    $fich = fopen("clientes.csv","r");                                                                                  
+    $fich = fopen("clientes.csv","r");   //esto no hacia falta                                                                               
     $resu = false;
     //recorre en csv
     while ( $tablaCli = fgetcsv($fich)){
         //si el nombre ya existe porque se iguala al de usuario se suma 1 al tercer valor que es el numero de accesos
         if ($tablaCli[0] == $dni ){
             $tablaCli[3] = $tablaCli[3] + $_SESSION['puntos']; 
+            //aqui falta utilizar salvartablaclientes();
             $resu = true;
         }
     }

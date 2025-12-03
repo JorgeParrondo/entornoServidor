@@ -14,8 +14,9 @@ if (isset($_SESSION['dni'])) {
             // ALMACENAR LOS PUNTOS EN FICHERO Y CERRAR LA SESION
             // SE USARIA anotarPuntos($_SESSION['dni'], $_SESSION['puntos']);
             require_once('vistas/login.php');  // MOSTRAR VISTA DE INICIAL
-            session_destroy();
+            session_destroy();//esto deberia ir antes
             $estaFuera = true; //activo mi cookie
+            // --> aqui falta el setcookie() por eso no funciona el timeout;
         }
         if ($_GET['orden'] == 'continuar' && $_SESSION['puntos'] > 0) {
             // CAMBIAR LOS  PUNTOS DE LA SESION CON VALORES ALEATORIA
@@ -24,7 +25,7 @@ if (isset($_SESSION['dni'])) {
              $_SESSION['puntos'] += 50;
             }
             if($valorRandom == 0){
-             $_SESSION['puntos'] += 50;
+             $_SESSION['puntos'] += 50; //se me olvidó cambiar el -50
             }
             if ($_SESSION['puntos'] <= 0) {
                 $_SESSION['puntos'] = 0;
@@ -42,11 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && !isset($_SESSION['dni'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    // PROCESAR FORMULARIO LOGIN
+    // PROCESAR FORMULARIO LOGIN. ESTA BIEN 
     $dni = $_POST['dni'];
     $clave = $_POST['clave'];
     $puntos = $_POST['puntos'];
-    // COMPROBAR QUE LOS PUNTOS SON NUMERICOS
+
+    // COMPROBAR QUE LOS PUNTOS SON NUMERICOS. ESTA PARTE ESTA BIEN TAMBIEN EXCEPTO POR LO DE SESSION DESTROY
     if(!is_numeric($puntos)){
         $msg =  "Tus puntos no son un numero";
         require_once('vistas/login.php');
@@ -69,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     //CUANDO HACE SESSION DESTROY EN SALIRSE ACTIVO LA COOKIE
-    setcookie('timeOut',$estaFuera,time() + 600);
+    setcookie('timeOut',$estaFuera,time() + 600); //esto no va aqui, va mas arriba cuando cambia el valor a true
     
  
     
