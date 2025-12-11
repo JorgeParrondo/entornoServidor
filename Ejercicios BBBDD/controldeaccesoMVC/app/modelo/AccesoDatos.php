@@ -26,12 +26,13 @@ class AccesoDatos {
     
 
    // Constructor privado  Patron singleton
-   
+   //el patron este hace que no puedan crearse las clases varias veces, 
+   //por eso se utiliza primero getModelo y sio detecta false, es que no existe y lo crea
     private function __construct(){
         
         try {
             $dsn = "mysql:host=localhost;dbname=Prueba";
-            $this->dbh = new PDO($dsn, "root", "root");
+            $this->dbh = new PDO($dsn, "root", "");
             $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->dbh->setAttribute( PDO::ATTR_EMULATE_PREPARES, FALSE );
         } catch (PDOException $e){

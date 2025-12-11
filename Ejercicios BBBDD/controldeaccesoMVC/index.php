@@ -17,7 +17,6 @@ if (isset($_SESSION['timeout'])) {
     $horaActual = time();
     // Si han pasado 60 sg cierra la sesión
     if (($horaActual - $_SESSION['timeout']) > 60) {
-        $db = AccesoDatos::getModelo();
         session_destroy();
         header("refresh:0");
         exit();
@@ -54,7 +53,7 @@ if (isset($_SESSION['Nombre'])) {
 if (isset($_REQUEST['orden']) and $_REQUEST['orden'] == "Entrar") {
     $login = $_REQUEST['login'];
     $passwd = $_REQUEST['passwd'];
-    $db = AccesoDatos::getModelo();
+    $db = AccesoDatos::getModelo();//los dos puntos se utilizan para metodos estaticos
     $user = $db->getUsuario($login);
     // No existe el usuario
     if ($user == null) {
