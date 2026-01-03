@@ -1,0 +1,72 @@
+#content {
+    display: flex;
+    flex-wrap: wrap;           
+    justify-content: space-between; 
+    gap: 15px;                 /* Espacio entre filas y columnas */
+    margin: 30px auto;
+    max-width: 1200px;         /* Contenedor centrado */
+}
+
+#content div {
+    background-color: white;
+    width: 19%;                /* Más ancho que antes */
+    min-height: 300px;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#content div h2 {
+    margin-bottom: 10px;
+}
+
+#content div img {
+    display: block;
+    margin: 0 auto;
+    max-height: 120px;
+    width: auto;
+}
+
+#content div input {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #415f7e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#content div input:hover {
+    background-color: #1c1d3d;
+}
+
+/* ====== RESPONSIVO ====== */
+@media (max-width: 1200px) {
+    #content div {
+        width: 22%; /* Ajuste en pantallas medianas */
+    }
+}
+
+@media (max-width: 900px) {
+    #content div {
+        width: 30%; /* 3 tarjetas por fila */
+    }
+}
+
+@media (max-width: 600px) {
+    #content div {
+        width: 45%; /* 2 tarjetas por fila */
+    }
+}
+
+@media (max-width: 400px) {
+    #content div {
+        width: 90%; /* 1 tarjeta por fila */
+    }
+}

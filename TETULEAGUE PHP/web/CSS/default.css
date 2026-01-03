@@ -1,0 +1,188 @@
+/* ====== ESTILOS GENERALES ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Sans", sans-serif;
+  text-decoration: none;
+}
+
+/* ====== BACKGROUND ANIMADO ====== */
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  display: block;
+}
+
+
+/* ====== MENÚ DE NAVEGACIÓN ====== */
+#nav {
+    display: flex;
+    position: sticky;
+    top : 0;
+    height: 60px;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1c1d3d;
+    z-index: 1000;
+}
+
+#logo {
+  background-color: white;
+  padding: 2px 5px;
+    width: auto;
+    height: auto;
+}
+
+#nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex: 1;
+    list-style: none;
+    margin-left: 40px;
+    min-width: 250px;
+}
+
+#nav li a {
+  display: block;
+  color: #ffffff;
+  background-color: #1c1d3d;
+  clip-path: polygon(20% 0, 100% 0, 80% 100%, 0 100%);
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  transition: 0.4s;
+  background: none;
+  padding: 0.5rem 30px 0.5rem 30px;
+}
+
+#nav li a:hover {
+  color:#1c1d3d;
+  background-color: #ffffff;
+  clip-path: polygon(20% 0, 100% 0, 80% 100%, 0 100%);
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* ====== TICKER NOTICIAS ====== */
+.ticker-s24 {
+    background-color: #070c5a;
+    overflow: hidden;
+    width: 100%;
+    position: sticky;
+    top: 60px;
+    z-index: 999;
+}
+
+.ticker__wrap {
+    display: flex;
+    width: max-content;
+    animation: tickerMove 25s linear infinite;
+}
+
+.ticker__list {
+    display: flex;
+    gap: 80px;
+    white-space: nowrap;
+    padding: 5px 0;
+}
+
+.ticker__item {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@keyframes tickerMove {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* ====== BREADCRUMBS ====== */
+#navWindow {
+  display: grid;
+  justify-content: space-between;
+  position: sticky;
+  top: 88px;
+}
+
+#navWindowPath {
+  grid-column: 1 / 2;
+  background-color: #415f7e;
+  color: white;
+  padding: 0.8rem 3rem 0.4rem 1rem;
+  width: fit-content;
+  font-size: 0.85rem;
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+}
+
+#navWindowPath a {
+  color: #ffffff;
+  transition: 0.1s;
+}
+
+#navWindowPath a :hover {
+  text-decoration: underline;
+}
+
+#navWindowUser {
+  grid-column: 2 / 3;
+  background-color: #415f7e;
+  color: white;
+  padding: 0.4rem 1rem 0.4rem 3rem;
+  width: fit-content;
+  font-size: 0.85rem;
+  clip-path: polygon(0 0, 20% 0, 100% 0, 100% 100%, 12.5% 100%);
+}
+
+#navWindowUserButton  {
+  background-color: green;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+}
+
+#navWindowUserButton a {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  padding-left: 5px;
+}
+
+/* ====== CONTENIDO ====== */
+#content {
+
+  min-height: 500px;
+
+}
+
+/* ====== FOOTER ====== */
+#footer {
+  background-color: #1c1d3d;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+#footer a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+#footer a:hover {
+  text-decoration: none;
+}

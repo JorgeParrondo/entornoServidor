@@ -1,0 +1,132 @@
+/* Contenedor principal */
+#content {
+  width: 95%;
+  max-width: 1100px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Título */
+#content h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #415f7e; /* Azul de la página */
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+/* ======== TABLA ======== */
+#content table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Encabezado */
+#content th {
+  background-color: #415f7e; /* Azul de la página */
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Filas */
+#content td {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Filas alternas */
+#content tr:nth-child(even) {
+  background-color: #f2f4f7; /* tono suave gris-azulado */
+}
+
+/* Hover en filas */
+#content tr:hover {
+  background-color: #d9e2f1; /* azul claro */
+  transition: background-color 0.3s ease;
+}
+
+/* Posición destacada */
+#content td:first-child {
+  font-weight: bold;
+  color: #415f7e;
+}
+
+/* Primer lugar (posición 1) */
+#content tr:nth-child(2) td {
+  background-color: #d3f0e5; /* verde claro suave */
+  font-weight: bold;
+  color: #0b8a2d; /* verde intenso */
+}
+
+/* Segunda posición */
+#content tr:nth-child(3) td {
+  background-color: #f0f7d3; /* verde amarillento suave */
+  color: #7a9a00;
+  font-weight: 600;
+}
+
+/* Tercera posición */
+#content tr:nth-child(4) td {
+  background-color: #fff7e3; /* amarillo suave */
+  color: #c98c00;
+  font-weight: 600;
+}
+
+/* Bordes redondeados del encabezado */
+#content th:first-child {
+  border-top-left-radius: 12px;
+}
+#content th:last-child {
+  border-top-right-radius: 12px;
+}
+
+/* ======== RESPONSIVO ======== */
+@media (max-width: 768px) {
+  #content table,
+  #content thead,
+  #content tbody,
+  #content th,
+  #content td,
+  #content tr {
+    display: block;
+  }
+
+  #content tr {
+    margin-bottom: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  #content td {
+    text-align: right;
+    padding: 10px 15px;
+    position: relative;
+  }
+
+  #content td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #415f7e; /* azul página */
+  }
+
+  #content th {
+    display: none;
+  }
+}

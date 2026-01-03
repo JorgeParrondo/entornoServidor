@@ -1,0 +1,231 @@
+/* =========================
+   CONTENEDOR PRINCIPAL
+   ========================= */
+#content {
+    display: flex; /* organiza verticalmente los elementos */
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* espacio entre la caja de noticias y las inferiores */
+    max-width: 1200px; /* límite de ancho total */
+    margin: 50px auto; /* centrado con margen superior e inferior */
+    padding: 0 40px; /* margen interior lateral */
+    box-sizing: border-box;
+}
+
+/* =========================
+   CAJA DE NOTICIAS SUPERIOR
+   ========================= */
+.noticias {
+    font-size: 25px;
+    background-color: #415f7e;
+    color: rgb(37, 14, 247);
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 1000px;
+    height: 100px;
+}
+
+.noticias-content {
+    position: center;
+    height: 60px;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.noticias-content p {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+/* 👇 Solo la noticia activa se muestra */
+.noticias-content p.active {
+    opacity: 1;
+}
+
+/* =========================
+   BLOQUES INFERIORES (6 CAJAS)
+   ========================= */
+.bloques-inferiores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* se adaptan al tamaño de pantalla */
+    gap: 30px; /* espacio entre cajas */
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Diseño base de cada caja */
+.bloque {
+    position: relative;
+    padding: 20px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    min-height: 300px;
+    transition: transform 0.5s ease;
+}
+
+.bloque h1 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   ANIMACIONES DE LAS CAJAS
+   ========================= */
+
+/* Contenedor de la parte que se desliza */
+
+
+.bloque.slide-up {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  height: auto; /* se ajusta al contenido */
+  min-height: 300px; /* opcional: para bloques pequeños mantener tamaño base */
+}
+
+
+
+/* Pregunta siempre visible */
+.bloque.slide-up h1 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 10px 0;
+}
+
+/* Respuesta completamente oculta al inicio */
+.bloque.slide-up .respuesta {
+  position: absolute;
+  height: 135px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(100%); /* totalmente fuera de la caja */
+  background-color: #415f7e;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.5s ease; /* animación suave */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Al hacer hover, la respuesta sube hasta un punto fijo */
+.bloque.slide-up:hover .respuesta {
+  transform: translateY(0px); /* sube totalmente hasta el fondo de la pregunta */
+}
+
+/* ======== TABLA DE PARTIDOS ======== */
+.tabla-partidos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 13px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla-partidos th {
+    background-color: #415f7e;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-partidos td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla-partidos tr:hover {
+    background-color: #f1f1f1;
+}
+/* ======== CLASIFICACIÓN MINI (dentro de caja) ======== */
+.clasificacion {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.clasificacion h1 {
+  font-size: 1.4rem;
+  color: #004aad;
+  margin-bottom: 15px;
+}
+
+.clasificacion table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto 10px auto;
+  font-size: 0.9rem;
+}
+
+.clasificacion th {
+  background-color: #004aad;
+  color: white;
+  padding: 8px;
+  font-weight: 600;
+}
+
+.clasificacion td {
+  padding: 8px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+}
+
+/* Colores por posición */
+.clasificacion tr:nth-child(1) td {
+  background-color: #e3fcef;
+  font-weight: bold;
+  color: #0b8a2d;
+}
+
+.clasificacion tr:nth-child(2) td {
+  background-color: #f2fce3;
+  color: #7a9a00;
+  font-weight: 600;
+}
+
+.clasificacion tr:nth-child(3) td {
+  background-color: #fff7e3;
+  color: #c98c00;
+  font-weight: 600;
+}
+
+/* Filas alternas */
+.clasificacion tr:nth-child(even) {
+  background-color: #f8f9fc;
+}
+
+.clasificacion tr:hover {
+  background-color: #e8f0ff;
+  transition: background-color 0.3s ease;
+}
+
+/* Enlace "Ver más" */
+.ver-mas a {
+  color: #004aad;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ver-mas a:hover {
+  text-decoration: underline;
+}
