@@ -1,5 +1,4 @@
 <!--Obtiene del formulario el nombre y el mail del equipo y confirma que el formulario se ha rellenado correctamente -->
-
 <?php
 $equipo = $_POST['nombre_equipo'];
 $email = $_POST['correo_contacto'];
@@ -10,21 +9,21 @@ $email = $_POST['correo_contacto'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="TETULEAGUE PHP/web/IMG/favicon.png">
+    <link rel="icon" type="image/png" href="../web/IMG/favicon.png">
     <title>TetuScores</title>
-    <link rel="stylesheet" href="TETULEAGUE PHP/web/CSS/default.css" />
-    <link rel="stylesheet" href="TETULEAGUE PHP/web/CSS/inscribete.css" />
+    <link rel="stylesheet" href="../web/CSS/default.css" />
+    <link rel="stylesheet" href="../web/CSS/inscribete.css" />
 </head>
 <body>
     <div id="nav">
         <div id="logo">
-            <a href="../index.html"><img src="TETULEAGUE PHP/web/IMG/Logo1.png" alt="Logo" width="200px"></a>
+            <a href="../index.php"><img src="../web/IMG/Logo1.png" alt="Logo" width="200px"></a>
         </div>
         <ul id="nav-list">
-            <li><a href="TETULEAGUE PHP/web/HTML/calendario.html">CALENDARIO</a></li>
-            <li><a href="TETULEAGUE PHP/web/HTML/equipos.html">EQUIPOS</a></li>
-            <li><a href="TETULEAGUE PHP/web/HTML/clasificacion.html">CLASIFICACIÓN</a></li>
-            <li><a href="TETULEAGUE PHP/web/HTML/inscribete.html">INSCRÍBETE</a></li>
+            <li><a href="calendario.html">CALENDARIO</a></li>
+            <li><a href="equipos.html">EQUIPOS</a></li>
+            <li><a href="clasificacion.html">CLASIFICACIÓN</a></li>
+            <li><a href="inscribete.html">INSCRÍBETE</a></li>
         </ul>
     </div> 
    

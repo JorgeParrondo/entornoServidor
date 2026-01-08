@@ -17,9 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $usr = $ac->getUsuario($email, $passwd);
         if ($usr) {
             if ($usr->usser === 'root') {
-                header("location: ../HTML/administrador.html");
+                header("location: ../layouts/home.php");
             } else {
-                header("Location: ../index.html");
+                header("Location: ../layouts/home.php");
             }
         } else {
             echo "Usuario no encontrado o contraseña incorrecta.";
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $db = Accesousuarios::getModelo();
         $db->addUsuario((object)['usser' => $usser, 'email' => $email, 'passwd' => $passwd]);
-        header("Location: ../index.html");
+        header("Location: ../layouts/home.php");
     }
 }
 ?>

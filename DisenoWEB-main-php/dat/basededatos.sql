@@ -1,10 +1,10 @@
 --El nombre de la base de datos es tetuan_league, para que la web detecte el usuario
 -- hay que crear la bbdd en el php myAdmin de cada usuario
 --  SCRIPTS DE CREACION DE TABLA
-CREATE TABLE usuario (
+CREATE TABLE usuarios (
     email VARCHAR(100),
     user VARCHAR(50),
-    password VARCHAR(255),
+    passwd VARCHAR(255),
     bloqueado BOOLEAN,
     intentos INT, 
     edad INT,
@@ -14,14 +14,14 @@ CREATE TABLE usuario (
 );
 
 -- Tabla Noticia
-CREATE TABLE noticia (
+CREATE TABLE noticias (
     msg TEXT,
     fecha DATETIME,
     autor VARCHAR(50)
 );
 --SCRIPTS DE INSERCION
 INSERT INTO `usuarios`
-(`email`, `user`, `password`, `bloqueado`, `intentos`, `edad`, `nombre`, `ape1`, `ape2`)
+(`email`, `user`, `passwd`, `bloqueado`, `intentos`, `edad`, `nombre`, `ape1`, `ape2`)
 VALUES
 ('root@gmail.com', 'root', 'root', 0, 0, 35, 'Administrador', 'Sistema', ''),
 ('ana@gmail.com', 'ana', 'ana123', 0, 0, 28, 'Ana', 'García', 'López'),

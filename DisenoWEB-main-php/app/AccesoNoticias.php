@@ -1,7 +1,7 @@
 <?php
 
-include_once __DIR__ . '/../dat/Noticia.php';
-include_once('config.php');
+include_once ('../dat/Noticia.php');
+include_once ('config.php');
 
 class AccesoNoticias {
     private static $modelo = null;

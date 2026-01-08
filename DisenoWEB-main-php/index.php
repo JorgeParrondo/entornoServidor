@@ -1,7 +1,7 @@
 <!--<//?php header("Location: web/HTML/home.php"); ?> -->
 <?
-include_once('dat/funciones.php');
-include_once('dat/config.php');
+include_once('app/funciones.php');
+include_once('app/config.php');
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ include_once('dat/config.php');
 <body>
 <div id="nav">
     <div id="logo">
-        <a href="../index.html"><img src="web/IMG/Logo1.png" alt="Logo" width="200px"></a>
+        <a href="../index.php"><img src="web/IMG/Logo1.png" alt="Logo" width="200px"></a>
     </div>
     <ul id="nav-list">
        <H1>COMPLETA EL FORMULARIO PARA ACCEDER A LA WEB (MAQUETA)</H1>
@@ -56,7 +56,7 @@ include_once('dat/config.php');
 <div id="content">
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form method="post" action="../PHP/controlAcceso.php">
+            <form method="post" action="app/controlAcceso.php">
                 <h1>Crea una cuenta</h1>
                 <span> </span>
                 <input type="hidden" name="action" value="register">
@@ -101,6 +101,6 @@ include_once('dat/config.php');
         <p>© 2025 TetuScores. Todos los derechos reservados.</p>
     </div>
 </div>
- <script src="TETULEAGUE PHP/web/JS/inscribete.js"></script>
+ <script src="web/JS/inscribete.js"></script>
 </body>
 </html>

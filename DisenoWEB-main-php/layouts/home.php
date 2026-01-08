@@ -1,6 +1,6 @@
 <?php
-include_once __DIR__ . '/../../app/AccesoNoticias.php';
-include_once __DIR__ . '/../../app/funciones.php';
+include_once ('../app/AccesoNoticias.php');
+include_once ('../app/funciones.php');
 ?>
 
 
@@ -9,21 +9,21 @@ include_once __DIR__ . '/../../app/funciones.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="TETULEAGUE PHP/web/IMG/favicon.png">
+    <link rel="icon" type="image/png" href="../web/IMG/favicon.png">
     <title>TetuScores</title>
-    <link rel="stylesheet" href="TETULEAGUE PHP/web/CSS/default.css"/>
-    <link rel="stylesheet" href="TETULEAGUE PHP/web/CSS/home.css"/>
+    <link rel="stylesheet" href="../web/CSS/default.css"/>
+    <link rel="stylesheet" href="../web/CSS/home.css"/>
 </head>
 <body>
     <canvas id="background"></canvas>
     <div id="nav">
         <div id="logo">
-            <a href="TETULEAGUE PHP/index.php"><img src="TETULEAGUE PHP/web/IMG/Logo1.png" alt="Logo" width="200px"></a>
+            <a href="../index.php"><img src="../web/IMG/Logo1.png" alt="Logo" width="200px"></a>
         </div>
         <ul id="nav-list">
-            <li><a href="TETULEAGUE PHP/web/HTML/calendario.html">CALENDARIO</a></li>
-            <li><a href="TETULEAGUE PHP/web/HTML/equipos.html">EQUIPOS</a></li>
-            <li><a href="TETULEAGUE PHP/web/HTML/clasificacion.html">CLASIFICACIÓN</a></li>
+            <li><a href="calendario.html">CALENDARIO</a></li>
+            <li><a href="equipos.html">EQUIPOS</a></li>
+            <li><a href="clasificacion.html">CLASIFICACIÓN</a></li>
             <!--<li><a href="TETULEAGUE PHP/web/HTML/jugadores.html">JUGADORES</a></li>-->
         </ul>
     </div>
@@ -58,12 +58,12 @@ include_once __DIR__ . '/../../app/funciones.php';
     </div>
     <div id="navWindow">
         <div id="navWindowPath">
-            <a href="index.html">Home</a>
+            <a href="../index.php">Home</a>
         </div>
         <div id="navWindowUser">
             <div id="navWindowUserButton">
-                <img src="TETULEAGUE PHP/web/IMG/user.png">
-                <a href="TETULEAGUE PHP/web/HTML/inscribete.html">Iniciar sesión</a>
+                <img src="../web/IMG/user.png">
+                <a href="inscribete.html">Iniciar sesión</a>
             </div> 
         </div>
     </div>
@@ -139,7 +139,7 @@ include_once __DIR__ . '/../../app/funciones.php';
             </tr>
         </tbody>
     </table>
-    <p class="ver-mas"><a href="TETULEAGUE PHP/web/HTML/calendario.html">Ver tabla completa →</a></p>
+    <p class="ver-mas"><a href="calendario.html">Ver tabla completa →</a></p>
     </div>
 
         <div class="bloque clasificacion">
@@ -161,7 +161,7 @@ include_once __DIR__ . '/../../app/funciones.php';
                 <tr><td>5</td><td>FPB</td><td>22</td></tr>
             </tbody>
         </table>
-        <p class="ver-mas"><a href="TETULEAGUE PHP/web/HTML/clasificacion.html">Ver tabla completa →</a></p>
+        <p class="ver-mas"><a href="clasificacion.html">Ver tabla completa →</a></p>
     </div>
 </div>
 

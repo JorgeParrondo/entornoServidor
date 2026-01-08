@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="TETULEAGUE PHP/web/IMG/favicon.png">
+    <link rel="icon" type="image/png" href="../web/IMG/favicon.png">
     <title>TetuScores</title>
-    <link rel="stylesheet" href="TETULEAGUE PHP/web/CSS/default.css" />
-    <link rel="stylesheet" href="TETULEAGUE PHP/web/CSS/inscribete.css" />
+    <link rel="stylesheet" href="../web/CSS/default.css" />
+    <link rel="stylesheet" href="../web/CSS/inscribete.css" />
 </head>
 <body>
 <div id="nav">
     <div id="logo">
-        <a href="../index.html"><img src="TETULEAGUE PHP/web/IMG/Logo1.png" alt="Logo" width="200px"></a>
+        <a href="../index.php"><img src="../web/IMG/Logo1.png" alt="Logo" width="200px"></a>
     </div>
     <ul id="nav-list">
-        <li><a href="TETULEAGUE PHP/web/HTML/calendario.html">CALENDARIO</a></li>
-        <li><a href="TETULEAGUE PHP/web/HTML/equipos.html">EQUIPOS</a></li>
-        <li><a href="TETULEAGUE PHP/web/HTML/clasificacion.html">CLASIFICACIÓN</a></li>
+        <li><a href="calendario.html">CALENDARIO</a></li>
+        <li><a href="equipos.html">EQUIPOS</a></li>
+        <li><a href="clasificacion.html">CLASIFICACIÓN</a></li>
         <!--<li><a href="TETULEAGUE PHP/web/HTML/jugadores.html">JUGADORES</a></li>-->
     </ul>
 </div>
@@ -51,13 +51,13 @@
 </div>
 <div id="navWindow">
     <div id="navWindowPath">
-        <a href="../index.html">Home</a> &gt; <a href="TETULEAGUE PHP/web/HTML/inscribete.html">Inscríbete</a>
+        <a href="../index.html">Home</a> &gt; <a href="inscribete.html">Inscríbete</a>
     </div>
 </div>
 <div id="content">
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form method="post" action="../PHP/controlAcceso.php">
+            <form method="post" action="../app/controlAcceso.php">
                 <h1>Crea una cuenta</h1>
                 <span> </span>
                 <input type="hidden" name="action" value="register">
@@ -68,7 +68,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form method="post" action="../PHP/controlAcceso.php">
+            <form method="post" action="../app/controlAcceso.php">
                 <h1>Inicia sesión</h1>
                 <span> </span>
                 <input type="hidden" name="action" value="login">
@@ -104,6 +104,6 @@
         <p>© 2025 TetuScores. Todos los derechos reservados.</p>
     </div>
 </div>
-<script src="TETULEAGUE PHP/web/JS/inscribete.js"></script>
+<script src="../web/JS/inscribete.js"></script>
 </body>
 </html>
