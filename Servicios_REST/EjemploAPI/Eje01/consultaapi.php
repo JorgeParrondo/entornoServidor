@@ -34,9 +34,9 @@ echo " TEMPERATURA EN MADRID: <BR>";
 echo "Temperatura Máxima: ". ($resu->main->temp_max - 273). "<br>";
 echo "Temperatura Mínima: ". ($resu->main->temp_min - 273). "<br>";
 
-
-echo " TEMPERATURA EN BURGOS <BR> "; // Coordenadas de google Map 42.3441841,-3.72931
-$valor = file_get_contents("http://api.openweathermap.org/data/2.5/weather?lat=42.34&lon=-3.73&appid=f08a050596e0119a383c0335f18b11e5");
+// 28.74501595080606, -17.822618370602314
+echo " TEMPERATURA EN LA PALMA (Canarias) <BR> "; // Coordenadas de google Map 42.3441841,-3.72931
+$valor = file_get_contents("http://api.openweathermap.org/data/2.5/weather?lat=28.74&lon=-17.82&appid=f08a050596e0119a383c0335f18b11e5");
 $resu  =json_decode($valor);
 echo "Temperatura Máxima: ". ($resu->main->temp_max - 273). "<br>";
 echo "Temperatura Mínima: ". ($resu->main->temp_min - 273). "<br>";

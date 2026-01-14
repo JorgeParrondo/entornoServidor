@@ -12,7 +12,7 @@ if (!empty($_GET['oper'])){
     case "resta"   :  $cantidad --; break;
     case "ver"     :  include_once 'respuesta.php'; break;
     case "verajax" :  
-        sleep(2);
+       // sleep(2);
         header("Content-type: application/json; charset=utf-8");  
         $respuesta['cantidad'] = $cantidad;
         echo json_encode($respuesta);
