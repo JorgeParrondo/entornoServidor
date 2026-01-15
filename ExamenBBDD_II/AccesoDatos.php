@@ -38,7 +38,7 @@ class AccesoDatos{
  
     //CONSULTA que devuelve la tabla de productos como un array que se mostrara al abrir la pagina
     public function seleccionarProductos() : array{
-        $stmt= $this->dbh->prepare("SELECT * FROM productos");
+        $stmt= $this->dbh->prepare("SELECT * FROM productos where stock_disponible > 10");
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Producto');
         $stmt->execute();
        if ($stmt->execute()) {
