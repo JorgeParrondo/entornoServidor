@@ -1,0 +1,178 @@
+#content{
+    padding: 5.8rem;
+}
+
+/* ====== TITULO DEL PERFIL ====== */
+#content h1 {
+    font-size: 2.5rem;        /* Más grande */
+    color: var(--color-tertiary); /* Color fuerte para resaltar */
+    font-weight: 700;          /* Más negrita */
+    text-align: center;
+    margin: 40px 0 20px 0;    /* Espacio arriba y abajo */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* Leve sombra */
+}
+
+/* ====== BOTONES ====== */
+.perfil-actions .btn {
+    background-color: #4CAF50; /* Verde destacado */
+    color: white;
+    padding: 14px 28px;        /* Más grande y cómodo */
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.perfil-actions .btn:hover {
+    background-color: #45a049; /* Verde más oscuro al pasar el mouse */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+/* ============================
+   Perfil Card
+============================ */
+.perfil-card {
+    background-color: #ffffff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    max-width: 900px;
+    margin: 40px auto; /* separa del header y ticker */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Cabecera del perfil */
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.perfil-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4CAF50;
+}
+
+/* Texto del perfil */
+.perfil-header h2 {
+    margin: 0 0 5px 0;
+    font-size: 28px;
+    color: var(--color);
+}
+
+.perfil-header p {
+    margin: 3px 0;
+    font-size: 16px;
+    color: var(--color-secondary);
+}
+
+/* Estado del usuario */
+.estado {
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.estado.activo {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.estado.bloqueado {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+/* Estadísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    text-align: center;
+}
+
+.stats-grid div {
+    background-color: #f0f2f5;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Botones */
+.perfil-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.perfil-actions .btn {
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ============================
+   Responsive
+============================ */
+@media screen and (max-width: 768px) {
+    .perfil-card {
+        padding: 25px 20px;
+        margin: 30px 10px;
+    }
+
+    .perfil-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .perfil-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .perfil-header h2 {
+        font-size: 22px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .perfil-actions .btn {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .perfil-card {
+        padding: 15px 15px;
+        margin: 20px 10px;
+    }
+
+    .perfil-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .perfil-header h2 {
+        font-size: 18px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+}
