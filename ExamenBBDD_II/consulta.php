@@ -9,7 +9,7 @@ function envioBloqueado(): bool {
 
 if (envioBloqueado()) {
     echo "Ya se ha enviado el formulario en menos de 24 horas. Acceso bloqueado.";
-    exit;
+    exit();
 }
 
 
