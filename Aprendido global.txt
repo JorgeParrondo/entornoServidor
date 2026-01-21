@@ -1,0 +1,1 @@
+La diferencia entre header e include es que header se carga las variables porque redirige a una vista
