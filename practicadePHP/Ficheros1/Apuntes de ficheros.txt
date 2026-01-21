@@ -1,0 +1,209 @@
+Perfecto 👍
+Aquí tienes un **resumen completo y ordenado**, pensado **tal cual para guardarlo en un archivo de texto** y estudiar para el examen.
+
+---
+
+# 📁 MANEJO DE FICHEROS EN PHP (RESUMEN)
+
+## 🔹 Flujo básico al trabajar con ficheros
+
+1. Comprobar si existe el fichero (`file_exists`)
+2. Abrir el fichero (`fopen`)
+3. Leer o escribir (`fgets`, `fputs`, `fgetcsv`, `fputcsv`)
+4. Cerrar el fichero (`fclose`)
+
+---
+
+## 🔹 `file_exists()`
+
+Comprueba si un fichero existe.
+
+```php
+file_exists("datos.txt");
+```
+
+Devuelve `true` o `false`.
+
+---
+
+## 🔹 `fopen()`
+
+Abre un fichero y devuelve un puntero.
+
+```php
+$archivo = fopen("datos.txt", "r");
+```
+
+### Modos importantes:
+
+* `"r"` → lectura
+* `"w"` → escritura (borra contenido)
+* `"a"` → escritura al final (append)
+
+---
+
+## 🔹 `fclose()`
+
+Cierra un fichero abierto con `fopen()`.
+
+```php
+fclose($archivo);
+```
+
+Siempre debe usarse.
+
+---
+
+## 🔹 `fputs()` (o `fwrite()`)
+
+Escribe texto en un fichero.
+
+```php
+fputs($archivo, "Hola\n");
+```
+
+* En `"w"` sobrescribe
+* En `"a"` añade al final
+* `\n` indica nueva línea
+
+---
+
+## 🔹 `fgets()`
+
+Lee **una línea completa** de un fichero.
+
+```php
+$linea = fgets($archivo);
+```
+
+Normalmente se usa con un bucle:
+
+```php
+while (!feof($archivo)) {
+    echo fgets($archivo);
+}
+```
+
+---
+
+# 📄 TRABAJO CON CSV
+
+Un CSV es un fichero de texto donde:
+
+* Cada línea es un registro
+* Los campos van separados por comas (o `;`)
+
+Ejemplo:
+
+```
+1,Juan,20
+2,Ana,22
+```
+
+---
+
+## 🔹 `fputcsv()`
+
+Escribe una fila CSV a partir de un array.
+
+```php
+fputcsv($archivo, [1, "Juan", 20]);
+```
+
+* No hay que poner comas ni `\n`
+* Cada llamada escribe una línea
+
+---
+
+## 🔹 `fgetcsv()`
+
+Lee una fila del CSV y la devuelve como array.
+
+```php
+$datos = fgetcsv($archivo);
+```
+
+Resultado:
+
+```php
+[0] => 1
+[1] => Juan
+[2] => 20
+```
+
+Lectura completa típica:
+
+```php
+while (($datos = fgetcsv($archivo)) !== false) {
+    echo $datos[1];
+}
+```
+
+---
+
+## 🔹 CSV y Objetos
+
+❌ `fgetcsv()` **NO rellena objetos** automáticamente.
+✅ Siempre devuelve un **array**.
+
+Forma correcta:
+
+```php
+$fila = fgetcsv($archivo);
+
+$obj = new Alumno();
+$obj->id = $fila[0];
+$obj->nombre = $fila[1];
+$obj->edad = $fila[2];
+```
+
+---
+
+## 🔹 `fputcsv()` con objetos
+
+No se pasa el objeto directamente.
+Hay que convertirlo a array:
+
+```php
+fputcsv($archivo, [
+    $alumno->id,
+    $alumno->nombre,
+    $alumno->edad
+]);
+```
+
+---
+
+## 🔹 Append (añadir contenido)
+
+### Con `fopen()`
+
+```php
+fopen("datos.txt", "a");
+```
+
+### Con `file_put_contents()`
+
+```php
+file_put_contents("datos.txt", "Texto\n", FILE_APPEND);
+```
+
+⚠️ `FILE_APPEND` **NO se usa con `fopen()`**
+
+---
+
+## 🧠 Frases clave de examen
+
+* `"a"` añade contenido, `"w"` borra el fichero
+* `fgets()` lee una línea completa
+* `fgetcsv()` devuelve un array con los campos del CSV
+* Para trabajar con objetos hay que asignar los valores manualmente
+* `FILE_APPEND` solo se usa con `file_put_contents()`
+
+---
+
+Si quieres, en el siguiente mensaje puedo:
+
+* convertir esto en **chuleta ultra-resumida**
+* o hacer un **ejercicio de examen completo corregido** 💪
+feof($variablefichero)--> true o false si ha llegado al final del fichero
