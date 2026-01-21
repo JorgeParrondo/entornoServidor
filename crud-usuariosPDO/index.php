@@ -1,13 +1,13 @@
 <?php
 session_start();
-
 include_once 'app/funciones.php';
 include_once 'app/acciones.php';
+
 
 if (isset($_POST['numero'])) {
     if ($_POST['numero'] == 12345) {
         $_SESSION['usuario'] = 1;
-        setcookie("activo", "1", time() + 5);
+        setcookie("activo", "1", time() + 3000);
         Header("Location: index.php");
         exit;
     } else {
@@ -35,6 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" ){
             case "Borrar"   : accionBorrar   ($_GET['id']); break;
             case "Modificar": accionModificar($_GET['id']); break;
             case "Detalles" : accionDetalles ($_GET['id']);break;
+            case "Incrementar Saldo" : accionIncrementarSaldo($_GET['users']); break;
+            case "Cambiar bloqueo" : accionCambiarBloqueo($_GET['users']); break;
             case "Terminar" : accionTerminar(); break;
             //case "Incrementar Saldo" : incrementarsaldo(); break;
         }
@@ -46,6 +48,7 @@ else {
          switch($_POST['orden']) {
              case "Nuevo"    : accionPostAlta(); break;
              case "Modificar": accionPostModificar(); break;
+             
              case "Detalles":; // No hago nada
          }
     }

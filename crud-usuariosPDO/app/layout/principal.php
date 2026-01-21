@@ -12,15 +12,22 @@
 <h1>GESTIÓN DE USUARIOS versión 1.1 + BD</h1>
 </div>
 <div id="content">
-    <form action=""></form>
-<?= $contenido ?>
-<form>
-<button name="orden" value="Nuevo"> Nuevo </button>
-<button name="orden" value="Terminar"> Terminar </button>
-<button name="orden" value="Terminar"> incrementar saldo </button>
-<button name="orden" value="Terminar"> cambiar bloqueo </button>
+<form method="GET">
+
+    <?= $contenido ?>
+
+    <button type="submit" name="orden" value="Nuevo">Nuevo</button>
+
+    <button type="submit" name="orden" value="Terminar">Terminar</button>
+
+    <input type="submit" name="orden" value="Incrementar Saldo">
+
+    <button type="submit" name="orden" value="Cambiar bloqueo">
+        Cambiar bloqueo
+    </button>
 
 </form>
+
 </div>
 </div>
 </body>

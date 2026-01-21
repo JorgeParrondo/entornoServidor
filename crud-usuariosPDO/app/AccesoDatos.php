@@ -15,7 +15,10 @@ class AccesoDatos {
     private $stmt_boruser  = null;
     private $stmt_moduser  = null;
     private $stmt_creauser = null;
-    
+    private $stmt_incrsaldo = null;
+    private $stmt_cambloq0 = null;
+    private $stmt_cambloq1 = null;
+
     public static function getModelo(){
         if (self::$modelo == null){
             self::$modelo = new AccesoDatos();
@@ -43,6 +46,9 @@ class AccesoDatos {
         $this->stmt_boruser   = $this->dbh->prepare("delete from Usuarios where login =:login");
         $this->stmt_moduser   = $this->dbh->prepare("update Usuarios set nombre=:nombre, password=:password, comentario=:comentario where login=:login");
         $this->stmt_creauser  = $this->dbh->prepare("insert into Usuarios (login,nombre,password,comentario) Values(?,?,?,?)");
+        $this->stmt_incrsaldo = $this->dbh->prepare("update Usuarios SET saldo = saldo * 1.10 WHERE login = :login");
+        $this->stmt_cambloq0 = $this->dbh->prepare("update Usuarios SET bloqueo = 0 WHERE login = :login");
+        $this->stmt_cambloq1 = $this->dbh->prepare("update Usuarios SET bloqueo = 1 WHERE login = :login");
     }
 
     // Cierro la conexión anulando todos los objectos relacioanado con la conexión PDO (stmt)
@@ -54,6 +60,9 @@ class AccesoDatos {
             $obj->stmt_boruser  = null;
             $obj->stmt_moduser  = null;
             $obj->stmt_creauser = null;
+            $obj->stmt_incrsaldo = null;
+            $obj->stmt_cambloq0 = null;
+            $obj->stmt_cambloq1 = null;
             $obj->dbh = null;
             self::$modelo = null; // Borro el objeto.
         }
@@ -114,6 +123,25 @@ class AccesoDatos {
         $resu = ($this->stmt_boruser->rowCount () == 1);
         return $resu;
     }   
+
+    function incrementarSaldo($login): bool{
+        $this->stmt_incrsaldo->bindParam(':login', $login);
+        $this->stmt_incrsaldo->execute();
+        $resu = ($this->stmt_incrsaldo->rowCount () == 1);   
+        
+        return $resu;
+        }
+
+    function cambiarBloqueo1($login){
+        $this->stmt_cambloq1->bindParam(':login', $login); 
+        $this->stmt_cambloq1->execute();
+        $resu = ($this->stmt_cambloq1->rowCount() == 1);  
+    }
+    function cambiarBloqueo0($login){
+        $this->stmt_cambloq0->bindParam(':login', $login); 
+        $this->stmt_cambloq0->execute();
+        $resu = ($this->stmt_cambloq0->rowCount() == 1);
+    }
     
      // Evito que se pueda clonar el objeto. (SINGLETON)
     public function __clone()

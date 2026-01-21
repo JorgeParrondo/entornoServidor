@@ -1,6 +1,7 @@
 <?php
 include_once "Usuario.php";
 
+
 function accionBorrar ($login){    
     $db = AccesoDatos::getModelo();
     $tuser = $db->borrarUsuario($login);
@@ -60,4 +61,21 @@ function accionPostModificar(){
     $db->modUsuario($user);
     
 }
-
+function accionIncrementarSaldo($array){
+    $db = AccesoDatos::getModelo();
+    for($i = 0; $i < count($array); $i++){
+      $db->incrementarSaldo($array[$i]);
+    }
+}
+function accionCambiarBloqueo($array){
+    $db = AccesoDatos::getModelo();
+    
+    for($i = 0; $i < count($array); $i++){
+      $user = $db->getUsuario($array[$i]);
+      if(($user->bloqueo == 0)){
+        $db->cambiarBloqueo1($array[$i]);
+      }else{
+        $db->cambiarBloqueo0($array[$i]);
+      }
+    }
+} 

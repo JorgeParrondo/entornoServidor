@@ -20,7 +20,7 @@ function mostrarDatos (){
     $tuser = $db->getUsuarios();
     foreach ($tuser as $user) {
         $msg .= "<tr>";
-        $msg .= "<td><input type=\"checkbox\" name=\"tproductos[]\" value=\"$user->nombre\"></td>";
+        $msg .= "<td><input type=\"checkbox\" name=\"users[]\" value=\"$user->login\"></td>";
         $msg .= "<td>$user->nombre</td>";
         $msg .= "<td>$user->login</td>";
         $msg .= "<td>$user->password</td>";
