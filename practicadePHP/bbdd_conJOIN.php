@@ -46,4 +46,12 @@ class AccesoDatos {
         }
       
     }
+
+
+    
+SELECT *
+FROM usuarios
+JOIN pedidos
+ON usuarios.id = pedidos.usuario_id;
+
     */
