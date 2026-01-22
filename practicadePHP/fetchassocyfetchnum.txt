@@ -1,0 +1,59 @@
+Tabla: usuarios
+
+id	nombre	email
+1	Ana	ana@mail.com
+
+2	Luis	luis@mail.com
+Consulta SQL
+$sql = "SELECT id, nombre, email FROM usuarios";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+
+1️⃣ Ejemplo con FETCH_ASSOC
+$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+print_r($resultado);
+
+🔹 Lo que devuelve
+Array
+(
+    [id] => 1
+    [nombre] => Ana
+    [email] => ana@mail.com
+)
+
+
+📌 Características
+
+Devuelve un array asociativo
+
+Las claves son los nombres de las columnas
+
+2️⃣ Ejemplo con FETCH_NUM
+$stmt->execute(); // volver a ejecutar la consulta
+$resultado = $stmt->fetch(PDO::FETCH_NUM);
+
+print_r($resultado);
+
+🔹 Lo que devuelve
+Array
+(
+    [0] => 1
+    [1] => Ana
+    [2] => ana@mail.com
+)
+
+
+📌 Características
+
+Devuelve un array numérico
+
+Los índices siguen el orden del SELECT
+
+🔍 Comparación rápida
+Método	Acceso
+FETCH_ASSOC	$fila['nombre']
+FETCH_NUM	$fila[1]
+🧠 Ejemplo de uso
+echo $resultado['nombre']; // FETCH_ASSOC
+echo $resultado[1];        // FETCH_NUM
