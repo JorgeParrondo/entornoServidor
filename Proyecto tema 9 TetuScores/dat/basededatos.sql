@@ -3,7 +3,7 @@ CREATE database IF NOT EXISTS tetuan_league;
 --  SCRIPTS DE CREACION DE TABLA
 CREATE TABLE IF NOT EXISTS usuarios (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-    rol ENUM('admin', 'periodista', 'default') NOT NULL,
+    rol ENUM('admin', 'periodista', 'default') NOT NULL DEFAULT 'default',
     email VARCHAR(100),
     usser VARCHAR(50),
     passwd VARCHAR(255),

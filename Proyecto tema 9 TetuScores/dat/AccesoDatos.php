@@ -117,8 +117,8 @@
     //addUsuario--> funcion insert para añadir usuarios 
     public function addUsuario($usuario): bool {
         try {
-            $stmt = $this->dbh->prepare("INSERT INTO usuarios (email, usser, passwd, rol) VALUES (?, ?, ?, ?)");
-            $stmt->execute([$usuario->email, $usuario->usser, $usuario->passwd, 'default']);
+            $stmt = $this->dbh->prepare("INSERT INTO usuarios (email, usser, passwd, rol) VALUES (?, ?, ?, 'default')");
+            $stmt->execute([$usuario->email, $usuario->usser, $usuario->passwd]);
             return $stmt->rowCount() === 1;
         } catch (PDOException $e) {
             error_log("Error al registrar usuario: " . $e->getMessage());
@@ -142,26 +142,6 @@
         }
     }
 
-    // Función update para editar los datos del usuario
-    /*
-    public function modificarPerfil($id_usuario, $newUsuario):bool{
-        error_log("INTENTANDO MODIFICAR USUARIO: [" . $id_usuario . "]");
-        try {
-            $sql = "UPDATE usuarios SET nombre = ?, email = ? WHERE id_usuario = ?";
-            $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue(1, $newUsuario->usser, PDO::PARAM_STR);
-            $stmt->bindValue(2, $newUsuario->passwd, PDO::PARAM_STR);
-            $stmt->bindValue(3, $newUsuario->email, PDO::PARAM_STR);
-            $stmt->bindValue(4, $id_usuario, PDO::PARAM_INT);
-            $stmt->execute();
-            error_log("FILAS MODIFICADAS: " . $stmt->rowCount());
-            return $stmt->rowCount() >= 0; 
-        } catch (PDOException $e) {
-            error_log("Error al modificar usuario: " . $e->getMessage());
-            return false;
-        }
-    }
-    */
     public function modificarPerfil($id_usuario, $newUsuario): bool {
         try {
             $sql = "UPDATE usuarios SET usser = ?, email = ?, nombre = ?, ape1 = ?, ape2 = ?, partidos = ?, goles = ?, asistencias = ?, faltas = ?, edad = ?";
@@ -216,25 +196,5 @@
     { 
         trigger_error('La clonación no permitida', E_USER_ERROR); 
     }
-    public function migrarContrasenas() {
-        $stmtSelect = $this->dbh->prepare("SELECT email, passwd FROM usuarios");
-        $stmtSelect->execute();
-        $usuarios = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
-
-        $stmtUpdate = $this->dbh->prepare("UPDATE usuarios SET passwd = :passwd WHERE email = :email");
-
-        foreach ($usuarios as $row) {
-            if (!password_get_info($row['passwd'])['algo']) {
-                $hash = password_hash($row['passwd'], PASSWORD_DEFAULT);
-                $stmtUpdate->execute([
-                    ':passwd' => $hash,
-                    ':email'     => $row['email']
-                ]);
-            }
-        }
-        echo "Contraseñas migradas correctamente";
-        print_r($usuarios);
-    }
-
-}
+ }
 ?>

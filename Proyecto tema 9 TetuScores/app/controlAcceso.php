@@ -64,12 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db->addUsuario((object)[
             'usser' => $usser,
             'email' => $email,
-            'passwd' => $passwdHasheada
+            'passwd' => $passwdHasheada,
         ]);
 
         // Iniciar sesión automáticamente después de registrar
         $_SESSION['ultimaAccion'] = time();
-        $_SESSION['usuario'] = $usser;
+        $_SESSION['email'] = $email;
         header("Location: ../layouts/home.php");
         exit();
     } else {
