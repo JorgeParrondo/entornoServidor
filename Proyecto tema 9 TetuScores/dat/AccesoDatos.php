@@ -117,8 +117,8 @@
     //addUsuario--> funcion insert para añadir usuarios 
     public function addUsuario($usuario): bool {
         try {
-            $stmt = $this->dbh->prepare("INSERT INTO usuarios (email, usser, passwd) VALUES (?, ?, ?)");
-            $stmt->execute([$usuario->email, $usuario->usser, $usuario->passwd]);
+            $stmt = $this->dbh->prepare("INSERT INTO usuarios (email, usser, passwd, rol) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$usuario->email, $usuario->usser, $usuario->passwd, 'default']);
             return $stmt->rowCount() === 1;
         } catch (PDOException $e) {
             error_log("Error al registrar usuario: " . $e->getMessage());

@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['ultimaAccion'] = time();
             $_SESSION['email'] = $usr->email;
             // Redirigir según tipo de usuario
-            if ($usr->email === "root@gmail.com") {
+            if ($usr->rol === "admin") {
                 header("Location: ../layouts/admin/administrador.php");
                 $_SESSION['administrador'] = 1;
             } else {

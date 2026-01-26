@@ -2,6 +2,7 @@
 class Usuario
 {
     private $id_usuario;
+    private $rol;
     private $email;
     private $usser;
     private $passwd;

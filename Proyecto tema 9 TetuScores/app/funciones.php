@@ -1,7 +1,7 @@
 <?php 
 include_once(__DIR__ . '/../dat/AccesoDatos.php');
 function mostrarUsusarios() {
-    $titulos = ["Usuario", "Email", "Contraseña", "Acciones"];
+    $titulos = ["Usuario", "Rol", "Email", "Contraseña", "Acciones"];
     $msg = "<table id='tablaUsuarios' class='table-datos'>\n";
     $msg .= "<thead><tr>";
     foreach ($titulos as $titulo) {
@@ -15,6 +15,7 @@ function mostrarUsusarios() {
     foreach ($usuarios as $usuario) {
         $msg .= "<tr>";
         $msg .= "<td>{$usuario->usser}</td>";
+        $msg .= "<td>{$usuario->rol}</td>";
         $msg .= "<td>{$usuario->email}</td>";
         $msg .= "<td>{$usuario->passwd}</td>";
         $msg .= "<td>

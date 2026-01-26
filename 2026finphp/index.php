@@ -83,7 +83,7 @@
     <form action="app/buscarHotel.php" method="GET">
         <div class="input-group">
             <label for="ciudad">CIUDAD:</label>
-            <input type="text" id="ciudad" name="ciudad" value= "$_SESSION['ciudad']" placeholder="Escriba el destino..." required>
+            <input type="text" id="ciudad" name="ciudad" value= "" placeholder="Escriba el destino..." required><?php isset($_SESSION['ciudad']) ?>
         </div>
         
         <button type="submit">Buscar Hotel</button>
