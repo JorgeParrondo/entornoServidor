@@ -1,7 +1,4 @@
 Ejercicios de programación entorno servidor de Jorge Parrondo, DAW 2, IES Tetuán de las Victorias.
 
---> EJERCICIOS_DE_ENTREGA : Ejercicios de entregar la URL del repositorio en el aula virtual.                                                             
---> EJERCICIOS_EXAMEN : Ejercicios de controles o modelos de examen.                
---> ejercicios_n : Ejercicios de práctica no obligatorios que están en el aula virtual.              
---> EjemplosPOO :Ejercicios de programación orientada a objetos en php.                                                                                
---> PracticadePHP : Apuntes con funciones varias y ejercicios para comprobar funcionamiento                                                                                                                                      
+En este repositorio están todos los proyectos en los que he trabajado para desarrollar mi aprendizaje en PHP, el más destacable es Proyecto tema 9 TetuScores, una aplicacion desarrollada en Diseño de interfaces Web y programación en entorno servidor que incluye las 3 capas del desarrollo de aplicaciones web. El proyecto consiste en una pequeña liga de futbol del instituto que contiene control MVC y una pequeña base de datos que puede controlar un usuario con rol de administrador desde un panel implementado en la misma aplicacion, para llevar a cabo el desarrollo del proyecto se han implementado metodologias agiles como un tablero Kanban en Trello.
+Si quieres observar como se ha desarrollado el control de versiones puedes comprobarlo en el repositorio originial --> https://github.com/alvrodha/DisenoWEB-main/tree/php
